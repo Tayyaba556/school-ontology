@@ -1,0 +1,297 @@
+@prefix : <http://www.semanticweb.org/e-time/ontologies/2023/2/school#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/e-time/ontologies/2023/2/school> .
+
+<http://www.semanticweb.org/e-time/ontologies/2023/2/school> rdf:type owl:Ontology ;
+                                                             
+                                                             rdfs:comment "this is ontology about school "@en .
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+###  http://www.semanticweb.org/e-time/ontologies/2023/2/school#Employees
+
+:Employees rdf:type owl:ObjectProperty ;
+           
+           rdfs:comment "School employee staff"@en ;
+           
+           rdfs:domain :School ;
+           
+           rdfs:range :Staff .
+
+
+
+###  http://www.semanticweb.org/e-time/ontologies/2023/2/school#Teachers
+
+:Teachers rdf:type owl:ObjectProperty ;
+          
+          rdfs:comment "teacher teaches the subject"@en ;
+          
+          rdfs:range :Subject ;
+          
+          rdfs:domain :Teacher .
+
+
+
+###  http://www.semanticweb.org/e-time/ontologies/2023/2/school#admits
+
+:admits rdf:type owl:ObjectProperty ;
+        
+        rdfs:comment "school admits students"@en ;
+        
+        rdfs:domain :School ;
+        
+        rdfs:range :Student .
+
+
+
+###  http://www.semanticweb.org/e-time/ontologies/2023/2/school#learns
+
+:learns rdf:type owl:ObjectProperty ;
+        
+        rdfs:comment "Student learns the subject"@en ;
+        
+        rdfs:domain :Student ;
+        
+        rdfs:range :Subject .
+
+
+
+
+
+#################################################################
+#
+#    Data properties
+#
+#################################################################
+
+
+###  http://www.semanticweb.org/e-time/ontologies/2023/2/school#JoinedON
+
+:JoinedON rdf:type owl:DatatypeProperty ;
+          
+          rdfs:comment "indicates the joining date  of the student "@en ;
+          
+          rdfs:domain :Student ;
+          
+          rdfs:range xsd:dateTime .
+
+
+
+###  http://www.semanticweb.org/e-time/ontologies/2023/2/school#staffID
+
+:staffID rdf:type owl:DatatypeProperty ;
+         
+         rdfs:domain :Staff ;
+         
+         rdfs:range xsd:string .
+
+
+
+###  http://www.semanticweb.org/e-time/ontologies/2023/2/school#studentID
+
+:studentID rdf:type owl:DatatypeProperty ;
+           
+           rdfs:domain :Student ;
+           
+           rdfs:range xsd:string .
+
+
+
+###  http://www.semanticweb.org/e-time/ontologies/2023/2/school#teach
+
+:teach rdf:type owl:DatatypeProperty ;
+       
+       rdfs:domain :Teacher ;
+       
+       rdfs:range xsd:string .
+
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://www.semanticweb.org/e-time/ontologies/2023/2/school#Administrative
+
+:Administrative rdf:type owl:Class ;
+                
+                owl:equivalentClass :Maintenence ;
+                
+                rdfs:subClassOf :Non_Teaching .
+
+
+
+###  http://www.semanticweb.org/e-time/ontologies/2023/2/school#Govt
+
+:Govt rdf:type owl:Class ;
+      
+      rdfs:subClassOf :School .
+
+
+
+###  http://www.semanticweb.org/e-time/ontologies/2023/2/school#House_Keeping
+
+:House_Keeping rdf:type owl:Class ;
+               
+               rdfs:subClassOf :Non_Teaching .
+
+
+
+###  http://www.semanticweb.org/e-time/ontologies/2023/2/school#Maintenence
+
+:Maintenence rdf:type owl:Class ;
+             
+             rdfs:subClassOf :Non_Teaching .
+
+
+
+###  http://www.semanticweb.org/e-time/ontologies/2023/2/school#Non_Teaching
+
+:Non_Teaching rdf:type owl:Class ;
+              
+              rdfs:subClassOf :Staff .
+
+
+
+###  http://www.semanticweb.org/e-time/ontologies/2023/2/school#Private
+
+:Private rdf:type owl:Class ;
+         
+         rdfs:subClassOf :School .
+
+
+
+###  http://www.semanticweb.org/e-time/ontologies/2023/2/school#School
+
+:School rdf:type owl:Class ;
+        
+        rdfs:subClassOf owl:Thing ;
+        
+        rdfs:comment "This class donates the school"@en .
+
+
+
+###  http://www.semanticweb.org/e-time/ontologies/2023/2/school#Senior_Student
+
+:Senior_Student rdf:type owl:Class ;
+                
+                rdfs:subClassOf :Student .
+
+
+
+###  http://www.semanticweb.org/e-time/ontologies/2023/2/school#Staff
+
+:Staff rdf:type owl:Class ;
+       
+       rdfs:subClassOf owl:Thing ;
+       
+       owl:disjointWith :Student .
+
+
+
+###  http://www.semanticweb.org/e-time/ontologies/2023/2/school#Student
+
+:Student rdf:type owl:Class ;
+         
+         rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.semanticweb.org/e-time/ontologies/2023/2/school#Subject
+
+:Subject rdf:type owl:Class ;
+         
+         rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.semanticweb.org/e-time/ontologies/2023/2/school#Supporting
+
+:Supporting rdf:type owl:Class ;
+            
+            rdfs:subClassOf :Non_Teaching .
+
+
+
+###  http://www.semanticweb.org/e-time/ontologies/2023/2/school#Teacher
+
+:Teacher rdf:type owl:Class ;
+         
+         rdfs:subClassOf :Staff .
+
+
+
+###  http://www.semanticweb.org/e-time/ontologies/2023/2/school#junior_Student
+
+:junior_Student rdf:type owl:Class ;
+                
+                rdfs:subClassOf :Student .
+
+
+
+
+
+#################################################################
+#
+#    Individuals
+#
+#################################################################
+
+
+###  http://www.semanticweb.org/e-time/ontologies/2023/2/school#Nat
+
+:Nat rdf:type owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/e-time/ontologies/2023/2/school#international_school
+
+:international_school rdf:type :School ,
+                               owl:NamedIndividual ;
+                      
+                      :admits :rick ;
+                      
+                      :Teachers :tony .
+
+
+
+###  http://www.semanticweb.org/e-time/ontologies/2023/2/school#rick
+
+:rick rdf:type :Student ,
+               owl:NamedIndividual ;
+      
+      :JoinedON "2023-01-12TO9:00:00"^^xsd:dateTime ;
+      
+      :studentID "S10001"^^xsd:string .
+
+
+
+###  http://www.semanticweb.org/e-time/ontologies/2023/2/school#tony
+
+:tony rdf:type :Teacher ,
+               owl:NamedIndividual ;
+      
+      :teach "Science"^^xsd:string ;
+      
+      :Teachers :rick .
+
+
+
+
+###  Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net
+
